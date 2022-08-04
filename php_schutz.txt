@@ -1,0 +1,91 @@
+1. File loginphp.php
+	--> schlechte Umsetzung, da hier eine SQL Injection möglich ist
+	
+	wie? (kurz: schädliche SQL Anfragen)
+		--> wir haben unser Textfeld
+		--> nun manipulieren wir unsere Eingabe
+		--> dafür wird hinter einem beliebigen Wort ein ' eingegeben
+		--> anschließend daran eine SQL Anweisung und ein Statement, dass immer wahr ist
+		
+		
+		--> xyz'OR 'a'='a
+		
+		--> das schließende Simikolon wird weggelassen
+		--> so scheint der String Teil des SQL Statements zu sein
+		--> dummerweise kommt dann der gesamte Inhalt der Datenbank zurück
+		
+		Lösung:
+			-alle Zeichen erkennen und zozusagen auskommentieren
+			-also Einfügen eines \ damit das Zeichen nicht interpretiert wird
+			
+			-Prepared Statement nutzen
+			-was macht prepare()?
+			-das sql Statement ist schon fertig
+			-alles was im Nachhinein eingefügt wird wird nicht mitinterpretiert
+			-Eingaben werden ausschließlich als Variablen betrachtet
+			-weitere Vorgehensweise : Passwörter unbedingt hashen
+			-unser OR 1 = 1 wird dann als Teil des Passworts interpretiert
+			
+2. xss (kurz: einschleusen von schädlichem JavaScript-Code)
+
+	Schwachstelle NR 1
+	-PHP_SELF ist gefährlich und bietet einen Angriffspunkt
+	xssbeispiel.php/"><script>alert('moin')</script>
+	
+	-Ziel, wir wollen, dass nciht alles als Code interpretiert wird
+	-->htmlspecialchars()
+	
+	
+	Schwachstelle 2 und 3
+	-$_POST
+	-$_GET
+	--> Statement wird zu früh beendet
+		echo "Moin".$_POST["name"] <-- nur dieser Teil wird ausgeführt
+		;?><script>alert("moin")</script>
+		
+	Ansätze:
+	
+		-Trim Funktion -- erstmal alle Leerzeichen raus -- stripslashes(trim($_POST["name"]))
+		
+		
+3. Mein Stand bisher
+
+	-kleiner Server in meinem Netzwerk
+	-XAMPP --> über Localhost erreichabr, ist eine MySQL Datenbank zu Testzwecken
+	-bisher habe ich eigene SQL Injections versucht
+	-sind ohne Sicherung natürlich erfolgreich
+	-deswegen Sicherung gegen SQLI und XSS
+	
+	-ein PHP Skript mit entsprechendem Eingabefeldern
+	-gesichert gegen SQLI und XSS
+	
+	-ein kleines Java Programm, nutzt dieselbe Datenbank
+	-mithilfe von prepared Statements SQLI verhindert
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+		-was wenn:
+			-->Bevor wir einen SQLI durchlassen, gucken wir zunächst in einer gesicherten Umgebung, was für ein Ergebnis dabei rauskommt.
+			-->dann haben wir zum einen einmal die Möglichkeit das Ergebnis mit dem entsprechend erwartetem zu vergleichen
+			-->ist das Ergebnis anders als erwartet, handelt es sich wohl um eine SQL Injection
+			
+			
+			-->dafür müsste man mehrer identische Datensätze haben, welche parralel eine Anfrage stellen------>quasi Dummys
+			-->wie legt man ein erwartetes Ergebnis fest? (Eventuell dürfen nur bestimmte Dinge/Typen zurückgegeben werden)
+			-->also quasi das Resultset überprüfen (des Dummys)
+			-->bei sicherer Anfrage an die Echte DB weitergeben
+			
+			
+			-->werden Dinge zurückgegeben, die nicht dem entsprechen, was zurückgegeben werden DARF, muss die Anfrage überprüft werden
+			-->sollte es sich um eine SQLI handeln, bleiben uns zwei Möglichkeiten:
+				-->wir lassen eine SQLI durch und bewerten anhand des Schadens
+				-->oder wir benutzen Prepared Statements, hier sollte die Anfrage fehlschlagen, da ja die SQLI nicht interpretiert wird
+					-->allerdings müsste man dann gucken, inwiefern die fehlgeschlagene Request bewertet werden kannS
