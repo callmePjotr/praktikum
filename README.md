@@ -11,3 +11,7 @@ https://owasp.org/www-community/attacks/xss/
 https://osw2019.sec.uni-stuttgart.de/documents/slides/manico_-_why_are_we_talking_about_xss_in_2019.pdf
 
 https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html
+
+
+
+https://downgit.github.io/#/home?url=https://github.com/callmePjotr/praktikum/blob/main/java_servlet_2-1.0-SNAPSHOT.war
