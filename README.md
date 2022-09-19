@@ -15,3 +15,5 @@ https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sh
 
 
 https://downgit.github.io/#/home?url=https://github.com/callmePjotr/praktikum/blob/main/java_servlet_2-1.0-SNAPSHOT.war
+
+String connectionString = "jdbc:mysql://localhost/" + dbName + "?user=" + dbUserName + "&password=" + dbPassword + "&useUnicode=true&characterEncoding=UTF-8";
