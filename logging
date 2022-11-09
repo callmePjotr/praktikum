@@ -1,0 +1,12 @@
+String uri = request.getRequestURI();
+String method = request.getMethod();
+String src_ip = request.getRemoteAddr();
+String hyph = request.getRemoteUser();
+String version = request.getProtocol();
+String auth_user = String.valueOf(request.getUserPrincipal());
+
+int status = response.getStatus();
+int  size = request.getContentLength();
+
+
+logger.info(src_ip +" " + hyph + " " + auth_user + " [" +  sdf2.format(timestamp) + " +100] " + "\"" + method + " " + uri + " " +version+ "\" " + status +" " + size);
