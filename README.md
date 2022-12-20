@@ -17,3 +17,8 @@ https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sh
 https://downgit.github.io/#/home?url=https://github.com/callmePjotr/praktikum/blob/main/java_servlet_2-1.0-SNAPSHOT.war
 
 String connectionString = "jdbc:mysql://localhost/" + dbName + "?user=" + dbUserName + "&password=" + dbPassword + "&useUnicode=true&characterEncoding=UTF-8";
+
+
+
+
+<134>Dec 20 10:34:58 MSI MeinBumms: source_ip =0:0:0:0:0:0:0:1, hyph =null, auth_user =null [20-12-2022 10:34:17.105 +100] ", method =POST, uri =/register, version =HTTP/1.1", status =200, size = 36, message =connecting to database from class connect
